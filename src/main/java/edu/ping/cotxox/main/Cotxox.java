@@ -1,6 +1,6 @@
 package edu.ping.cotxox.main;
 
-import edu.ping.cotxox.carrera.Carrera;
+import edu.ping.cotxox.domain.carrera.Carrera;
 
 public class Cotxox {
 

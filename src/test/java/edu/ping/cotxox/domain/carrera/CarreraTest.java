@@ -1,4 +1,4 @@
-package edu.ping.cotxox.carrera;
+package edu.ping.cotxox.domain.carrera;
 
 import org.junit.Before;
 import org.junit.Test;

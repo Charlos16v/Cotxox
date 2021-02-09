@@ -1,4 +1,4 @@
-package edu.ping.cotxox.carrera;
+package edu.ping.cotxox.domain.carrera;
 
 public class Carrera {
 
