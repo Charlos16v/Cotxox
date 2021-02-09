@@ -1,5 +1,6 @@
 package edu.ping.cotxox.domain.tarifa;
 
+import edu.ping.cotxox.domain.carrera.Carrera;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +23,23 @@ public class TarifaTest {
 
     @Test
     public void getCosteDistanciaTest() {
-        assertEquals(79.25, tarifa.getCosteDistancia(55), 0);
+        assertEquals(74.25, tarifa.getCosteDistancia(55), 0);
+    }
+
+    @Test
+    public void getCosteTiempoTest() {
+        assertEquals(3.50, tarifa.getCosteTiempo(10), 0);
+    }
+
+    @Test
+    public void getCosteTotalEsperadoTest() {
+        Carrera carrera = new Carrera("123456789");
+        carrera.setDistancia(7.75);
+        carrera.setTiempoEsperado(10);
+        assertEquals(13.9625, tarifa.getCosteTotalEsperado(carrera), 0);
+
+        Carrera carrera2 = new Carrera("123456789");
+        assertEquals(5, tarifa.getCosteTotalEsperado(carrera2), 0);
     }
 
 }

@@ -1,5 +1,7 @@
 package edu.ping.cotxox.domain.carrera;
 
+import edu.ping.cotxox.domain.tarifa.Tarifa;
+
 public class Carrera {
 
     private final String tarjetaCredito;
@@ -7,6 +9,7 @@ public class Carrera {
     private String destino;
     private double distancia;
     private int tiempoEsperadoMinutos;
+    private Tarifa tarifa = new Tarifa();
 
     public Carrera(String tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
@@ -36,11 +39,9 @@ public class Carrera {
         return this.origen;
     }
 
-
     public String getDestino() {
         return this.destino;
     }
-
 
     public double getDistancia() {
         return this.distancia;
@@ -48,5 +49,9 @@ public class Carrera {
 
     public int getTiempoEsperado() {
         return this.tiempoEsperadoMinutos;
+    }
+
+    public double getCosteEsperado() {
+        return this.tarifa.getCosteTotalEsperado(this);
     }
 }

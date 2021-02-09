@@ -37,7 +37,7 @@ public class Cotxox {
         System.out.println("From: " + carrera.getOrigen());
         System.out.println("To: " + carrera.getDestino());
         System.out.println("Distance: " + carrera.getDistancia());
-        //System.out.println("Total: " + carrera.getCosteEsperado() + "€");
+        System.out.println("Total: " + carrera.getCosteEsperado() + "€");
 
         System.out.println("\n#####" + "\t Get a ride: Driver: \t" + "#####\n");
 
