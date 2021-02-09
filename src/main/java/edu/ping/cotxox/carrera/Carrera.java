@@ -45,4 +45,8 @@ public class Carrera {
     public double getDistancia() {
         return this.distancia;
     }
+
+    public int getTiempoEsperado() {
+        return this.tiempoEsperadoMinutos;
+    }
 }
