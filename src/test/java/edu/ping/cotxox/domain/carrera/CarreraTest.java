@@ -1,5 +1,6 @@
 package edu.ping.cotxox.domain.carrera;
 
+import edu.ping.cotxox.domain.tarifa.Tarifa;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,6 +21,10 @@ public class CarreraTest {
         assertNotNull(carrera);
     }
 
+    @Test
+    public void getTarjetaCreditoTest() {
+        assertEquals("123456789", carrera.getTarjetaCredito());
+    }
     @Test
     public void setOrigenTest() {
         carrera.setOrigen("MasterLand");
@@ -42,5 +47,13 @@ public class CarreraTest {
     public void setTiempoEsperadoTest() {
         carrera.setTiempoEsperado(10);
         assertEquals(10, this.carrera.getTiempoEsperado());
+    }
+
+    @Test
+    public void getCosteTotalEsperadoTest() {
+        Carrera carrera = new Carrera("123456789");
+        carrera.setDistancia(7.75);
+        carrera.setTiempoEsperado(10);
+        assertEquals(13.9625, carrera.getCosteEsperado(), 0);
     }
 }

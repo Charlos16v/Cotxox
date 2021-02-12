@@ -9,7 +9,7 @@ public class Carrera {
     private String destino;
     private double distancia;
     private int tiempoEsperadoMinutos;
-    private Tarifa tarifa = new Tarifa();
+    private final Tarifa tarifa = new Tarifa();
 
     public Carrera(String tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;

@@ -1,6 +1,9 @@
 package edu.ping.cotxox.main;
 
 import edu.ping.cotxox.domain.carrera.Carrera;
+import edu.ping.cotxox.domain.conductores.Conductor;
+
+import java.util.ArrayList;
 
 public class Cotxox {
 
@@ -43,7 +46,7 @@ public class Cotxox {
 
         /* Necesitamos crear la flota de conductores de donde seleccionar uno
          * para ofrecer el servicio.
-         * La flota es un objeto de tipo PoolConductores.
+         * La flota es un objeto de tipo PoolConductores.*/
 
 
         ArrayList<Conductor> poolConductores = new ArrayList<>();
@@ -69,7 +72,7 @@ public class Cotxox {
             conductora.setValoracion((byte) 4);
             index++;
         }
-
+        /*
         // Creamos el objeto flota de conductores, de la clase PoolConductores.
 
         PoolConductores conductores = new PoolConductores(poolConductores);
@@ -94,7 +97,7 @@ public class Cotxox {
         }
         // cancel ride
         // contact by phone
-
+        /*
         System.out.println("\n#####" + "\t Pay and Tip: \t" + "#####\n");
 
         carrera.realizarPago(carrera.getCosteEsperado());
