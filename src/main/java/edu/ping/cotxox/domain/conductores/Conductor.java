@@ -1,11 +1,23 @@
 package edu.ping.cotxox.domain.conductores;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Conductor {
 
-    private final String nombre;
-    private String matricula;
-    private String modelo;
-    private byte valoracion;
+    private String nombre = null;
+    private String matricula = null;
+    private String modelo = null;
+    private double valoracionMedia = 0d;
+    private boolean ocupado = false;
+    private final List<Byte> valoraciones = new ArrayList<Byte>();
+
+    public Conductor(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Conductor() {
+    }
 
     public String getNombre() {
         return this.nombre;
@@ -19,12 +31,16 @@ public class Conductor {
         return this.modelo;
     }
 
-    public byte getValoracion() {
-        return this.valoracion;
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
     }
 
-    public Conductor(String nombre) {
-        this.nombre = nombre;
+    public boolean isOcupado() {
+        return this.ocupado;
+    }
+
+    public double getValoracion() {
+        return this.valoracionMedia;
     }
 
     public void setMatricula(String matricula) {
@@ -36,8 +52,28 @@ public class Conductor {
     }
 
     public void setValoracion(byte valoracion) {
-        this.valoracion = valoracion;
-
+        this.valoraciones.add(valoracion);
+        calcularValoracionMedia();
     }
+
+    public int getNumeroValoraciones() {
+        return this.valoraciones.size();
+    }
+
+    public void calcularValoracionMedia() {
+        int total = this.valoraciones.stream().mapToInt(num -> Integer.parseInt(String.valueOf(num)))
+                .sum();
+        this.valoracionMedia = total / getNumeroValoraciones();
+        //this.valoracionMedia = this.valoraciones.stream().mapToInt(num -> Integer.parseInt(String.valueOf(num))).average();
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + getNombre() + '\n' +
+                "Vehiculo: " + getModelo() + '\n' +
+                "Matricula: " + getMatricula() + '\n' +
+                "Valoración: " + getValoracion() + '\n';
+    }
+
 
 }

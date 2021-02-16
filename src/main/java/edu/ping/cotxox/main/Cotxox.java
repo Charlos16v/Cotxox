@@ -2,8 +2,10 @@ package edu.ping.cotxox.main;
 
 import edu.ping.cotxox.domain.carrera.Carrera;
 import edu.ping.cotxox.domain.conductores.Conductor;
+import edu.ping.cotxox.domain.conductores.PoolConductores;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cotxox {
 
@@ -49,19 +51,19 @@ public class Cotxox {
          * La flota es un objeto de tipo PoolConductores.*/
 
 
-        ArrayList<Conductor> poolConductores = new ArrayList<>();
+        List<Conductor> poolConductores = new ArrayList<Conductor>();
         Conductor conductor = null;
 
         // creamos objetos conductor y los metemos en el array
 
-        String[] nombres = { "Samantha", "Fox", "Mola" };
+        String[] nombres = {"Samantha", "Fox", "Mola", "Spiderman"};
         for (String nombre : nombres) {
             conductor = new Conductor(nombre);
             poolConductores.add(conductor);
         }
 
-        String[] matricula = { "4ABC123", "5DHJ444", "7JKK555" };
-        String[] modelos = { "Chevy Malibu", "Toyota Prius", "Mercedes A" };
+        String[] matricula = {"4ABC123", "5DHJ444", "7JKK555", "8888"};
+        String[] modelos = {"Chevy Malibu", "Toyota Prius", "Mercedes A", "BMW E30"};
 
         int index = 0;
         // conductora.getClass().getFields();
@@ -72,12 +74,12 @@ public class Cotxox {
             conductora.setValoracion((byte) 4);
             index++;
         }
-        /*
+
         // Creamos el objeto flota de conductores, de la clase PoolConductores.
 
         PoolConductores conductores = new PoolConductores(poolConductores);
 
-         Seleccion del conductor en la flota y asignacion a la carrera
+        // Seleccion del conductor en la flota y asignacion a la carrera
 
         carrera.asignarConductor(conductores);
 
@@ -97,7 +99,7 @@ public class Cotxox {
         }
         // cancel ride
         // contact by phone
-        /*
+
         System.out.println("\n#####" + "\t Pay and Tip: \t" + "#####\n");
 
         carrera.realizarPago(carrera.getCosteEsperado());
@@ -115,6 +117,6 @@ public class Cotxox {
         carrera.getConductor().setValoracion((byte) 5);
 
         System.out.println("Driver: " + carrera.getConductor().getNombre());
-        System.out.println("Stars: " + carrera.getConductor().getValoracion());*/
+        System.out.println("Stars: " + carrera.getConductor().getValoracion());
     }
 }

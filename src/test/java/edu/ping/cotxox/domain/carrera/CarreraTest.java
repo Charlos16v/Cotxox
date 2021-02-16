@@ -1,15 +1,18 @@
 package edu.ping.cotxox.domain.carrera;
 
-import edu.ping.cotxox.domain.tarifa.Tarifa;
+import edu.ping.cotxox.domain.conductores.Conductor;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class CarreraTest {
 
     private Carrera carrera = null;
+    private final List<Conductor> conductores = new ArrayList<Conductor>();
 
     @Before
     public void setupCarrera() {
@@ -25,6 +28,7 @@ public class CarreraTest {
     public void getTarjetaCreditoTest() {
         assertEquals("123456789", carrera.getTarjetaCredito());
     }
+
     @Test
     public void setOrigenTest() {
         carrera.setOrigen("MasterLand");
@@ -56,4 +60,27 @@ public class CarreraTest {
         carrera.setTiempoEsperado(10);
         assertEquals(13.9625, carrera.getCosteEsperado(), 0);
     }
+
+    @Test
+    public void setConductorGetConductorTest() {
+        Conductor conductor = new Conductor("Master");
+        carrera.setConductor(conductor);
+        assertEquals("Master", carrera.getConductor().getNombre());
+    }
+
+    @Test
+    public void recibirGetPropina() {
+        carrera.recibirPropina(20);
+        assertEquals(20, carrera.getPropina(), 0.01);
+    }
+
+    @Test
+    public void liberarConductor() {
+        Conductor conductor = new Conductor("Master");
+        carrera.setConductor(conductor);
+        carrera.liberarConductor();
+        assertFalse(conductor.isOcupado());
+    }
+
+
 }

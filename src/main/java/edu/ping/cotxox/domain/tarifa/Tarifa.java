@@ -4,30 +4,25 @@ import edu.ping.cotxox.domain.carrera.Carrera;
 
 public class Tarifa {
 
-    private final double costeMilla;
-    private final double costeMinuto;
-    private final int costeMinimo;
-    private final int porcentajeComision;
+    final static double COSTE_MILLA = 1.35;
+    final static double COSTE_MINUTO = 0.35;
+    final static double COSTE_MINIMO = 5.0;
+    final static byte PORCENTAJE_COMISION = 20;
 
-    public Tarifa() {
-        this.costeMilla = 1.35;
-        this.costeMinuto = 0.35;
-        this.costeMinimo = 5;
-        this.porcentajeComision = 20;
+
+    public static double getCosteDistancia(double distancia) {
+        return distancia * COSTE_MILLA;
     }
 
-    public double getCosteDistancia(double distancia) {
-        return distancia * costeMilla;
+    public static double getCosteTiempo(double tiempo) {
+        return tiempo * COSTE_MINUTO;
     }
 
-    public double getCosteTiempo(double tiempo) {
-        return tiempo * costeMinuto;
-    }
 
-    public double getCosteTotalEsperado(Carrera carrera) {
+    public static double getCosteTotalEsperado(Carrera carrera) {
         double coste = getCosteTiempo(carrera.getTiempoEsperado()) + getCosteDistancia(carrera.getDistancia());
-        if ( coste < costeMinimo) {
-            return costeMinimo;
+        if (coste < COSTE_MINIMO) {
+            return COSTE_MINIMO;
         } else {
             return coste;
         }
