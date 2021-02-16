@@ -58,5 +58,13 @@ public class ConductorTest {
         assertFalse(conductor.isOcupado());
     }
 
+    @Test
+    public void getNumeroValoracionesTest() {
+        conductor.setValoracion((byte) 4);
+        conductor.setValoracion((byte) 6);
+        conductor.setValoracion((byte) 5);
+        assertEquals(3, conductor.getNumeroValoraciones());
+    }
+
 
 }
