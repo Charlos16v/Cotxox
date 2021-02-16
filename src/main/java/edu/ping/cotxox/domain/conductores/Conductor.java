@@ -61,7 +61,7 @@ public class Conductor {
     }
 
     public void calcularValoracionMedia() {
-        int total = this.valoraciones.stream().mapToInt(num -> Integer.parseInt(String.valueOf(num)))
+        double total = this.valoraciones.stream().mapToInt(num -> Integer.parseInt(String.valueOf(num)))
                 .sum();
         this.valoracionMedia = total / getNumeroValoraciones();
         //this.valoracionMedia = this.valoraciones.stream().mapToInt(num -> Integer.parseInt(String.valueOf(num))).average();
