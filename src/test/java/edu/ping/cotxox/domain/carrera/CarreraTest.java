@@ -1,6 +1,7 @@
 package edu.ping.cotxox.domain.carrera;
 
 import edu.ping.cotxox.domain.conductores.Conductor;
+import edu.ping.cotxox.domain.conductores.PoolConductores;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,10 +14,18 @@ public class CarreraTest {
 
     private Carrera carrera = null;
     private final List<Conductor> conductores = new ArrayList<Conductor>();
+    private PoolConductores poolConductores;
+
+
 
     @Before
     public void setupCarrera() {
-        carrera = new Carrera("123456789");
+        this.carrera = new Carrera("123456789");
+        Conductor conductor = new Conductor("Master");
+
+        this.conductores.add(conductor);
+
+        this.poolConductores = new PoolConductores(conductores);
     }
 
     @Test
@@ -82,5 +91,10 @@ public class CarreraTest {
         assertFalse(conductor.isOcupado());
     }
 
+    @Test
+    public void asignarConductorTest() {
+        carrera.asignarConductor(poolConductores);
+        assertTrue(carrera.getConductor().isOcupado());
+    }
 
 }

@@ -2,6 +2,7 @@ package edu.ping.cotxox.domain.conductores;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PoolConductores {
 
@@ -19,7 +20,7 @@ public class PoolConductores {
 
     public Conductor asignarConductor() {
 
-        /*
+
         Conductor conductor = new Conductor();
         Random numeroAleatorio = new Random();
         boolean asignado = false;
@@ -37,8 +38,8 @@ public class PoolConductores {
             }
         }
         return conductor;
-        */
 
+        /*
         Conductor conductor = null;
         for (Conductor cond : poolConductores) {
             if (!cond.isOcupado()) {
@@ -48,6 +49,7 @@ public class PoolConductores {
             }
         }
         return conductor;
+        */
 
         //return getPoolConductores().stream().filter(conductor -> !conductor.isOcupado()).findAny();
     }
