@@ -20,7 +20,6 @@ public class PoolConductores {
 
     public Conductor asignarConductor() {
 
-
         Conductor conductor = new Conductor();
         Random numeroAleatorio = new Random();
         boolean asignado = false;
@@ -38,19 +37,5 @@ public class PoolConductores {
             }
         }
         return conductor;
-
-        /*
-        Conductor conductor = null;
-        for (Conductor cond : poolConductores) {
-            if (!cond.isOcupado()) {
-                cond.setOcupado(true);
-                conductor = cond;
-                break;
-            }
-        }
-        return conductor;
-        */
-
-        //return getPoolConductores().stream().filter(conductor -> !conductor.isOcupado()).findAny();
     }
 }

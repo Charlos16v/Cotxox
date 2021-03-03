@@ -17,7 +17,6 @@ public class CarreraTest {
     private PoolConductores poolConductores;
 
 
-
     @Before
     public void setupCarrera() {
         this.carrera = new Carrera("123456789");
@@ -93,7 +92,7 @@ public class CarreraTest {
 
     @Test
     public void asignarConductorTest() {
-        carrera.asignarConductor(poolConductores);
+        this.carrera.asignarConductor(poolConductores);
         assertTrue(carrera.getConductor().isOcupado());
     }
 
